@@ -1,0 +1,12 @@
+Junior Machine Learning Engineer
+
+Requirements:
+- Strong Python programming
+- Experience with Pandas and NumPy
+- Hands-on with Scikit-learn and model evaluation
+- Knowledge of Deep Learning using TensorFlow or PyTorch
+- Familiarity with Docker and REST APIs
+
+Nice to have:
+- Experience with NLP and Hugging Face Transformers
+- Basic knowledge of AWS

@@ -1,0 +1,16 @@
+PRIYA SHARMA
+priya.sharma@example.com | +91 90000 00000 | github.com/example-priya
+
+SUMMARY
+Final-year B.Tech student interested in machine learning and data analysis.
+
+SKILLS
+Python, SQL, Pandas, NumPy, Scikit-learn, Git, Machine Learning
+
+PROJECTS
+Customer Churn Predictor - built a logistic regression model using Scikit-learn
+and Pandas; evaluated with precision, recall and F1.
+Sales Dashboard - cleaned data with Pandas and queried it with SQL.
+
+EDUCATION
+B.Tech in Computer Science, Example Institute of Technology (2022-2026)

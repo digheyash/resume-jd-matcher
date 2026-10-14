@@ -1,0 +1,19 @@
+# Python cache and virtual environment
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Secrets
+.env
+
+# Large or personal data stays out of Git
+data/raw/*
+data/processed/*
+models/*
+
+# ...but keep the empty folders themselves
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep
