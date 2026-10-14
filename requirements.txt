@@ -8,9 +8,9 @@
 pytest>=7.0
 
 # Phase 2: parsing and preprocessing
-# pdfplumber>=0.10
-# PyMuPDF>=1.23          # fallback PDF reader
-# spacy>=3.7             # then: python -m spacy download en_core_web_sm
+pdfplumber>=0.10
+PyMuPDF>=1.23          # fallback PDF reader
+spacy>=3.7             # then: python -m spacy download en_core_web_sm
 
 # Phase 3: skill extraction and data handling
 # pandas>=2.0
