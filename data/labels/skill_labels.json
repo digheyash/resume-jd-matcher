@@ -1,0 +1,444 @@
+{
+  "version": 1,
+  "description": "Hand-labelled skill snippets for scoring the extractor (Phase 3). 'skills' lists the canonical ontology skills a human sees in 'text'. Skills outside the ontology are NOT labelled. Add your own cases at the end.",
+  "cases": [
+    {
+      "id": "r01",
+      "kind": "resume",
+      "section": "skills",
+      "text": "Python, SQL, Pandas, NumPy, Scikit-learn, Git, Machine Learning",
+      "skills": [
+        "Python",
+        "SQL",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "Git",
+        "Machine Learning"
+      ],
+      "note": "sample resume skills line"
+    },
+    {
+      "id": "r02",
+      "kind": "resume",
+      "section": "skills",
+      "text": "C++, C#, .NET, Java, JavaScript",
+      "skills": [
+        "C++",
+        "C#",
+        ".NET",
+        "Java",
+        "JavaScript"
+      ],
+      "note": "tricky punctuation names"
+    },
+    {
+      "id": "r03",
+      "kind": "resume",
+      "section": "skills",
+      "text": "Node.js, React.js, MongoDB, Express.js",
+      "skills": [
+        "Node.js",
+        "React",
+        "MongoDB",
+        "Express.js"
+      ],
+      "note": "React.js alias"
+    },
+    {
+      "id": "r04",
+      "kind": "resume",
+      "section": "skills",
+      "text": "Python, R, Go, Excel, Tableau",
+      "skills": [
+        "Python",
+        "R",
+        "Go",
+        "Excel",
+        "Tableau"
+      ],
+      "note": "ambiguous names as list items"
+    },
+    {
+      "id": "r05",
+      "kind": "resume",
+      "section": "skills",
+      "text": "sklearn, Keras, OpenCV, NLTK, spaCy",
+      "skills": [
+        "Scikit-learn",
+        "Keras",
+        "OpenCV",
+        "NLTK",
+        "spaCy"
+      ],
+      "note": "alias sklearn"
+    },
+    {
+      "id": "r06",
+      "kind": "resume",
+      "section": "skills",
+      "text": "Languages: Python3, JS, TypeScript",
+      "skills": [
+        "Python",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "note": "aliases Python3 and JS"
+    },
+    {
+      "id": "r07",
+      "kind": "resume",
+      "section": "skills",
+      "text": "AWS, GCP, Azure, Docker, Kubernetes, Jenkins, Terraform",
+      "skills": [
+        "AWS",
+        "Google Cloud",
+        "Azure",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "Terraform"
+      ],
+      "note": "cloud and devops, GCP alias"
+    },
+    {
+      "id": "r08",
+      "kind": "resume",
+      "section": "skills",
+      "text": "PyTorch | TensorFlow | Hugging Face | LLMs | NLP",
+      "skills": [
+        "PyTorch",
+        "TensorFlow",
+        "Hugging Face Transformers",
+        "Large Language Models",
+        "Natural Language Processing"
+      ],
+      "note": "pipe separated"
+    },
+    {
+      "id": "r23",
+      "kind": "resume",
+      "section": "skills",
+      "text": "Linux, Bash, Git, GitHub, Jupyter Notebook, VS Code",
+      "skills": [
+        "Linux",
+        "Bash",
+        "Git",
+        "GitHub",
+        "Jupyter"
+      ],
+      "note": "VS Code is not in the ontology and is not labelled"
+    },
+    {
+      "id": "r24",
+      "kind": "resume",
+      "section": "skills",
+      "text": "MySQL, PostgreSQL, SQLite, Redis",
+      "skills": [
+        "MySQL",
+        "PostgreSQL",
+        "SQLite",
+        "Redis"
+      ],
+      "note": "databases; SQL must not match inside MySQL"
+    },
+    {
+      "id": "r09",
+      "kind": "resume",
+      "section": "experience",
+      "text": "Built a REST API with FastAPI and deployed it using Docker on AWS.",
+      "skills": [
+        "REST API",
+        "FastAPI",
+        "Docker",
+        "AWS"
+      ],
+      "note": "plain prose"
+    },
+    {
+      "id": "r10",
+      "kind": "resume",
+      "section": "experience",
+      "text": "Used Python and SQL to process sales records and built dashboards in Power BI.",
+      "skills": [
+        "Python",
+        "SQL",
+        "Power BI"
+      ],
+      "note": "plain prose"
+    },
+    {
+      "id": "r11",
+      "kind": "resume",
+      "section": "projects",
+      "text": "Trained a CNN using TensorFlow and Keras for image classification with OpenCV preprocessing.",
+      "skills": [
+        "TensorFlow",
+        "Keras",
+        "OpenCV"
+      ],
+      "note": "CNN is not in the ontology"
+    },
+    {
+      "id": "r12",
+      "kind": "resume",
+      "section": "projects",
+      "text": "Set up CI/CD pipelines with Jenkins and GitHub.",
+      "skills": [
+        "CI/CD",
+        "Jenkins",
+        "GitHub"
+      ],
+      "note": "slash in a name"
+    },
+    {
+      "id": "r13",
+      "kind": "resume",
+      "section": "experience",
+      "text": "Worked in R&D on a recommendation engine; also supported the go-to-market plan.",
+      "skills": [],
+      "note": "false friends R&D and go-to-market"
+    },
+    {
+      "id": "r14",
+      "kind": "resume",
+      "section": "experience",
+      "text": "I excel in fast-paced environments.",
+      "skills": [],
+      "note": "the verb excel"
+    },
+    {
+      "id": "r15",
+      "kind": "resume",
+      "section": "experience",
+      "text": "Spring 2024 internship. Swift delivery of tasks.",
+      "skills": [],
+      "note": "Spring semester and the word Swift"
+    },
+    {
+      "id": "r16",
+      "kind": "resume",
+      "section": "experience",
+      "text": "Experience in R and Python for statistical modelling.",
+      "skills": [
+        "R",
+        "Python"
+      ],
+      "note": "R next to a hint word"
+    },
+    {
+      "id": "r17",
+      "kind": "resume",
+      "section": "experience",
+      "text": "Proficient in Go and Rust for backend services.",
+      "skills": [
+        "Go",
+        "Rust"
+      ],
+      "note": "hard case: Rust has no hint word nearby"
+    },
+    {
+      "id": "r18",
+      "kind": "resume",
+      "section": "summary",
+      "text": "Hobby projects in Rust and Go.",
+      "skills": [
+        "Rust",
+        "Go"
+      ],
+      "note": "hard case: prose mention with no signal"
+    },
+    {
+      "id": "r19",
+      "kind": "resume",
+      "section": "summary",
+      "text": "Final-year student interested in machine learning and deep learning.",
+      "skills": [
+        "Machine Learning",
+        "Deep Learning"
+      ],
+      "note": "lower-case concept names"
+    },
+    {
+      "id": "r20",
+      "kind": "resume",
+      "section": "summary",
+      "text": "Data analysis enthusiast with a flair for statistics.",
+      "skills": [
+        "Data Analysis",
+        "Statistics"
+      ],
+      "note": "concept names"
+    },
+    {
+      "id": "r21",
+      "kind": "resume",
+      "section": "experience",
+      "text": "Collaborated with the team using Agile and Scrum.",
+      "skills": [
+        "Agile"
+      ],
+      "note": "Scrum is an alias of Agile: one skill"
+    },
+    {
+      "id": "r22",
+      "kind": "resume",
+      "section": "education",
+      "text": "B.Tech in Computer Science. Coursework: Data Structures and Algorithms, Machine Learning, DBMS.",
+      "skills": [
+        "Data Structures",
+        "Machine Learning"
+      ],
+      "note": "DBMS is not in the ontology"
+    },
+    {
+      "id": "r25",
+      "kind": "resume",
+      "section": "experience",
+      "text": "Migrated services from .NET to Node.js and wrote unit tests.",
+      "skills": [
+        ".NET",
+        "Node.js"
+      ],
+      "note": "dot names inside prose"
+    },
+    {
+      "id": "r26",
+      "kind": "resume",
+      "section": "experience",
+      "text": "The pipe was covered in rust and the car was swift.",
+      "skills": [],
+      "note": "lower-case rust and swift"
+    },
+    {
+      "id": "j01",
+      "kind": "jd",
+      "section": "requirements",
+      "text": "- Strong Python programming\n- Experience with Pandas and NumPy\n- Hands-on with Scikit-learn and model evaluation\n- Knowledge of Deep Learning using TensorFlow or PyTorch\n- Familiarity with Docker and REST APIs",
+      "skills": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "Model Evaluation",
+        "Deep Learning",
+        "TensorFlow",
+        "PyTorch",
+        "Docker",
+        "REST API"
+      ],
+      "note": "sample JD requirements"
+    },
+    {
+      "id": "j02",
+      "kind": "jd",
+      "section": "nice_to_have",
+      "text": "- Experience with NLP and Hugging Face Transformers\n- Basic knowledge of AWS",
+      "skills": [
+        "Natural Language Processing",
+        "Hugging Face Transformers",
+        "AWS"
+      ],
+      "note": "sample JD nice to have"
+    },
+    {
+      "id": "j03",
+      "kind": "jd",
+      "section": "requirements",
+      "text": "- 3+ years of experience with Java and Spring Boot\n- Knowledge of Kubernetes and CI/CD\n- Familiarity with PostgreSQL",
+      "skills": [
+        "Java",
+        "Spring Boot",
+        "Kubernetes",
+        "CI/CD",
+        "PostgreSQL"
+      ],
+      "note": "backend JD"
+    },
+    {
+      "id": "j04",
+      "kind": "jd",
+      "section": "requirements",
+      "text": "- Proficiency in Python, R or Go\n- Ability to excel in a fast-paced environment",
+      "skills": [
+        "Python",
+        "R",
+        "Go"
+      ],
+      "note": "list with or; verb excel"
+    },
+    {
+      "id": "j05",
+      "kind": "jd",
+      "section": "requirements",
+      "text": "- Strong React and TypeScript skills\n- Experience with Node.js and MongoDB",
+      "skills": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "MongoDB"
+      ],
+      "note": "hard case: React without hint or list"
+    },
+    {
+      "id": "j06",
+      "kind": "jd",
+      "section": "about",
+      "text": "We are a fast-growing startup with a Go-to-market team.",
+      "skills": [],
+      "note": "false friend Go-to-market"
+    },
+    {
+      "id": "j07",
+      "kind": "jd",
+      "section": "responsibilities",
+      "text": "- Build and deploy ML models on AWS\n- Collaborate with the R&D team",
+      "skills": [
+        "Machine Learning",
+        "AWS"
+      ],
+      "note": "hard case: ML abbreviation in prose"
+    },
+    {
+      "id": "j08",
+      "kind": "jd",
+      "section": "requirements",
+      "text": "- Experience with Apache Spark and Hadoop\n- SQL and data visualization",
+      "skills": [
+        "Apache Spark",
+        "Hadoop",
+        "SQL",
+        "Data Visualization"
+      ],
+      "note": "big data"
+    },
+    {
+      "id": "j10",
+      "kind": "jd",
+      "section": "requirements",
+      "text": "- Bachelor's degree in Computer Science\n- Excellent communication skills",
+      "skills": [],
+      "note": "no skills at all"
+    },
+    {
+      "id": "j11",
+      "kind": "jd",
+      "section": "requirements",
+      "text": "- Experience with Computer Vision (OpenCV) and C++",
+      "skills": [
+        "Computer Vision",
+        "OpenCV",
+        "C++"
+      ],
+      "note": "parentheses"
+    },
+    {
+      "id": "j12",
+      "kind": "jd",
+      "section": "requirements",
+      "text": "- React quickly to changing priorities\n- Go the extra mile",
+      "skills": [],
+      "note": "false friends React and Go"
+    }
+  ]
+}
