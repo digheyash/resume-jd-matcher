@@ -1,0 +1,24 @@
+VIKRAM SINGH
+vikram.singh@example.com | +91 90000 00005
+
+SUMMARY
+DevOps engineer with 4 years of experience automating builds, deployments and infrastructure for cloud-hosted services.
+
+SKILLS
+Linux, Docker, Kubernetes, AWS, Terraform, Jenkins, GitHub Actions, Python, Bash, Prometheus, Grafana, Git
+
+EXPERIENCE
+DevOps Engineer, Orchid Software (2022 to present)
+- Run production workloads on Kubernetes (EKS) and manage the AWS infrastructure with Terraform.
+- Build CI/CD pipelines in Jenkins and GitHub Actions that cut release time from hours to minutes.
+- Set up Prometheus and Grafana monitoring and on-call alerting.
+- Write Python and Bash scripts to automate backups and log clean-up.
+
+System Administrator, Lumen Retail (2020 to 2022)
+- Administered Linux servers and handled patching and incident response.
+
+EDUCATION
+B.Sc Computer Science, Sample University, 2020
+
+CERTIFICATIONS
+AWS Certified Solutions Architect Associate

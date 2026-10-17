@@ -1,10 +1,9 @@
 # ---------------------------------------------------------------
 # Dependencies, grouped by the phase that first needs them.
-# Phase 1 only needs pytest. Install the rest when we reach the phase.
 # Exact versions get pinned (pip freeze) in Phase 7.
 # ---------------------------------------------------------------
 
-# Phase 1 (now): testing
+# Phase 1: testing
 pytest>=7.0
 
 # Phase 2: parsing and preprocessing
@@ -16,8 +15,9 @@ spacy>=3.7             # then: python -m spacy download en_core_web_sm
 # pandas>=2.0
 
 # Phase 4: vectorization and matching
-# scikit-learn>=1.3
-# sentence-transformers>=2.2   # first run downloads the model (internet once)
+# Verified to install and import on Python 3.14.6 (Windows).
+scikit-learn>=1.3
+sentence-transformers>=2.2   # first run downloads the model (internet once)
 
 # Phase 6: UI
 # streamlit>=1.30

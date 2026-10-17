@@ -1,0 +1,24 @@
+Senior NLP Engineer
+
+About the role
+We are building language-understanding features for our legal technology product and need an experienced NLP engineer to lead the modelling work.
+
+Responsibilities
+- Fine-tune and evaluate transformer models for classification, extraction and search.
+- Design experiments, annotation guidelines and error analysis.
+- Deploy models as services and monitor their quality in production.
+- Mentor junior team members.
+
+Requirements
+- 4+ years of experience in machine learning or NLP.
+- Strong Python and PyTorch skills.
+- Hands-on experience with Hugging Face Transformers.
+- Experience deploying models with Docker and REST APIs.
+- Strong SQL and data handling with pandas.
+
+Nice to have
+- Experience with AWS and MLflow.
+- Experience with vector search.
+
+Benefits
+Conference budget, flexible hours and health insurance.

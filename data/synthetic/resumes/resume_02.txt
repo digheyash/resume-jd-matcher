@@ -1,0 +1,21 @@
+ROHAN MEHTA
+rohan.mehta@example.com | +91 90000 00002
+
+SUMMARY
+Data analyst with 3 years of experience turning sales and operations data into weekly reports and dashboards for business teams.
+
+SKILLS
+SQL, Excel, Power BI, Python, pandas, statistics, A/B testing, data visualization, data cleaning
+
+EXPERIENCE
+Data Analyst, Lumen Retail (2023 to present)
+- Write SQL queries against a PostgreSQL warehouse to produce weekly sales, returns and inventory reports.
+- Built 6 Power BI dashboards used by regional managers; cut manual reporting time from two days to a few hours.
+- Cleaned and joined messy supplier data with pandas and flagged duplicate records.
+- Designed and analysed an A/B test on a checkout change and presented the result with confidence intervals.
+
+Junior Analyst, Kestrel Systems (2022 to 2023)
+- Maintained Excel models for monthly forecasting and reconciled them with finance.
+
+EDUCATION
+B.Sc Statistics, Sample University, 2022

@@ -1,0 +1,24 @@
+Data Analyst
+
+About the role
+Our operations team needs an analyst who can turn raw data into clear reports that managers use every week.
+
+Responsibilities
+- Write SQL queries to pull and combine data from our warehouse.
+- Build and maintain dashboards and weekly reports.
+- Analyse trends, run simple experiments and present findings to non-technical colleagues.
+- Clean and validate data and document how our metrics are defined.
+
+Requirements
+- Strong SQL skills.
+- Experience with Excel and a BI tool such as Power BI or Tableau.
+- Working knowledge of Python and pandas for analysis.
+- Good grasp of statistics and data visualization.
+- Clear written and spoken communication.
+
+Nice to have
+- Experience with A/B testing.
+- Familiarity with cloud data warehouses.
+
+Benefits
+Hybrid work, paid certifications and health insurance.

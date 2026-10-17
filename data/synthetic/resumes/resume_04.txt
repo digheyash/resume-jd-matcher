@@ -1,0 +1,21 @@
+SNEHA KULKARNI
+sneha.kulkarni@example.com | +91 90000 00004
+
+SUMMARY
+Frontend developer with 2 years of experience building responsive web applications in React and TypeScript.
+
+SKILLS
+JavaScript, TypeScript, React, HTML, CSS, Redux, REST APIs, Jest, Git, Figma basics
+
+EXPERIENCE
+Frontend Developer, Brightwave Labs (2024 to present)
+- Build reusable React components and a design system shared by three product teams.
+- Consume REST APIs, handle loading and error states, and manage state with Redux.
+- Improve page load time by code splitting and lazy loading images.
+- Write unit tests with Jest and React Testing Library.
+
+Web Developer Intern, Kestrel Systems (2023)
+- Converted Figma designs to HTML and CSS pages.
+
+EDUCATION
+B.Tech, Computer Science, Sample University, 2024

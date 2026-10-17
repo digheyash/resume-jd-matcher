@@ -1,0 +1,17 @@
+ARJUN PATEL
+arjun.patel@example.com | +91 90000 00007
+
+SUMMARY
+Recent graduate who enjoys teaching computers to find patterns in data.
+
+PROJECTS
+- Taught a computer to recognise handwritten digits: built a small neural network, trained it on 60,000 images, and tuned it until about 97 percent of the test images were classified correctly.
+- Predicted house prices from listings data: cleaned the data, tried several statistical models, and kept the one that made the smallest errors on unseen examples.
+- Grouped news articles by topic without using any labels, then checked the groups by hand.
+
+EXPERIENCE
+Research Assistant, Example Institute of Technology (6 months)
+- Collected and labelled data for a study on speech recognition and wrote scripts to check label quality.
+
+EDUCATION
+B.Tech, Electronics and Communication, Example Institute of Technology, 2025

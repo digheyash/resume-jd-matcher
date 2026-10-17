@@ -1,0 +1,25 @@
+pair_id,resume_file,jd_file,human_score_0_to_100,human_verdict,notes
+1,data/synthetic/resumes/resume_06.txt,data/synthetic/jds/jd_01.txt,5.0,No-Fit,"Despite listing every ML/NLP buzzword, Divya (Resume 06) is a B.Com graduate with only sales experience and one copied tutorial. Fails all practical requirements."
+2,data/synthetic/resumes/resume_03.txt,data/synthetic/jds/jd_03.txt,95.0,Fit,"Matches all required and preferred skills (Java, Spring Boot, PostgreSQL, Kafka, AWS, Docker)."
+3,data/synthetic/resumes/resume_08.txt,data/synthetic/jds/jd_01.txt,0.0,No-Fit,Meera (Resume 08) is a Marketing Executive. Completely irrelevant to Junior ML Engineer.
+4,data/synthetic/resumes/resume_01.txt,data/synthetic/jds/jd_01.txt,85.0,Fit,"Strong match on core ML stack (PyTorch, scikit-learn, pandas) and deployment (Docker, FastAPI) for a junior role."
+5,data/synthetic/resumes/resume_10.txt,data/synthetic/jds/jd_04.txt,85.0,Fit,"Ishaan (Resume 10) matches core frontend requirements (React, JS, HTML, CSS, Git) and has practical experience building a React/Node ordering site and freelance websites."
+6,data/synthetic/resumes/resume_09.txt,data/synthetic/jds/jd_01.txt,95.0,Fit,"Farhan (Resume 09) is highly overqualified for Junior ML, but technically possesses all required skills (Python, PyTorch, pandas, scikit-learn, Docker, REST APIs)."
+7,data/synthetic/resumes/resume_02.txt,data/synthetic/jds/jd_06.txt,15.0,No-Fit,"Candidate is a Data Analyst; lacks required NLP, deep learning, and engineering skills."
+8,data/synthetic/resumes/resume_05.txt,data/synthetic/jds/jd_05.txt,100.0,Fit,"Vikram (Resume 05) is a perfect match for DevOps Engineer. Hits all required and nice-to-have skills (Kubernetes, AWS, Terraform, Jenkins, Python/Bash, Prometheus/Grafana)."
+9,data/synthetic/resumes/resume_07.txt,data/synthetic/jds/jd_01.txt,70.0,Partial Fit,"Arjun (Resume 07) describes ML projects well conceptually (neural networks, regression, clustering) but lists zero specific tools (Python, PyTorch, pandas) making it hard to pass automated screening."
+10,data/synthetic/resumes/resume_04.txt,data/synthetic/jds/jd_02.txt,0.0,No-Fit,"Sneha (Resume 04) is a Frontend Developer. Lacks all data analysis skills (SQL, Python, BI tools, statistics)."
+11,data/synthetic/resumes/resume_02.txt,data/synthetic/jds/jd_02.txt,95.0,Fit,"Matches all core requirements and nice-to-haves including Power BI, Python/pandas, SQL, and A/B testing."
+12,data/synthetic/resumes/resume_01.txt,data/synthetic/jds/jd_06.txt,40.0,No-Fit,"Lacks required seniority (4+ years) and deep NLP/transformer experience, despite having basic ML tools."
+13,data/synthetic/resumes/resume_06.txt,data/synthetic/jds/jd_06.txt,5.0,No-Fit,Divya (Resume 06) lists NLP/Transformers but has zero real experience. Completely fails the 4+ years seniority requirement for Senior NLP Engineer.
+14,data/synthetic/resumes/resume_10.txt,data/synthetic/jds/jd_03.txt,10.0,No-Fit,"Ishaan (Resume 10) is a frontend/JS developer. Lacks Java, Spring Boot, PostgreSQL, and microservices experience required for Backend Java."
+15,data/synthetic/resumes/resume_09.txt,data/synthetic/jds/jd_06.txt,100.0,Fit,"Farhan (Resume 09) is a perfect match for Senior NLP Engineer. 6 years experience, leads a team, deep PyTorch/Hugging Face expertise, deploys via Docker/AWS, and mentors."
+16,data/synthetic/resumes/resume_03.txt,data/synthetic/jds/jd_01.txt,10.0,No-Fit,Candidate is a Java Backend Developer with no Python or Machine Learning background.
+17,data/synthetic/resumes/resume_04.txt,data/synthetic/jds/jd_04.txt,95.0,Fit,"Sneha (Resume 04) perfectly matches the Frontend Developer role (React, TypeScript, REST APIs, Jest, HTML/CSS, Git)."
+18,data/synthetic/resumes/resume_02.txt,data/synthetic/jds/jd_01.txt,30.0,No-Fit,"Lacks core ML frameworks (PyTorch, scikit-learn) and deployment tools (Docker, REST APIs)."
+19,data/synthetic/resumes/resume_05.txt,data/synthetic/jds/jd_03.txt,10.0,No-Fit,"Vikram (Resume 05) is a DevOps engineer. Lacks Java, Spring Boot, and application development experience required for the backend role."
+20,data/synthetic/resumes/resume_08.txt,data/synthetic/jds/jd_02.txt,20.0,No-Fit,"Meera (Resume 08) is a Marketing Executive. Has Excel experience but lacks SQL, BI tools, Python, and statistics needed for Data Analyst."
+21,data/synthetic/resumes/resume_01.txt,data/synthetic/jds/jd_02.txt,55.0,Partial Fit,"Good baseline in Python and SQL, but lacks required BI tools (Power BI/Tableau) and reporting experience."
+22,data/synthetic/resumes/resume_07.txt,data/synthetic/jds/jd_06.txt,10.0,No-Fit,"Arjun (Resume 07) is a recent grad. Lacks the 4+ years experience, Hugging Face/PyTorch tools, and deployment skills for a Senior NLP role."
+23,data/synthetic/resumes/resume_03.txt,data/synthetic/jds/jd_05.txt,45.0,Partial Fit,"Possesses basic cloud and container knowledge (AWS, Docker) but lacks core DevOps tools (Terraform, Kubernetes, CI/CD)."
+24,data/synthetic/resumes/resume_10.txt,data/synthetic/jds/jd_02.txt,30.0,No-Fit,"Ishaan (Resume 10) has basic SQL/Python but lacks the required BI tools (Power BI/Tableau), statistics, and reporting experience for a Data Analyst."

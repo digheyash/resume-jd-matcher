@@ -1,0 +1,21 @@
+DIVYA NAIR
+divya.nair@example.com | +91 90000 00006
+
+SUMMARY
+Enthusiastic fresher seeking a challenging role in the IT industry where I can utilise my skills.
+
+SKILLS
+Python, Java, C++, JavaScript, SQL, Machine Learning, Deep Learning, NLP, Computer Vision, TensorFlow, PyTorch, Keras, scikit-learn, pandas, NumPy, Hugging Face Transformers, Docker, Kubernetes, AWS, Azure, REST API, Git, Linux, Tableau, Power BI, Excel
+
+EXPERIENCE
+Sales Associate (part time), Lumen Retail (2024)
+- Helped customers at the billing counter and managed daily cash reports.
+
+PROJECTS
+- Followed an online tutorial to build a movie recommendation notebook.
+
+EDUCATION
+B.Com, Sample University, 2025
+
+CERTIFICATIONS
+Completed an online Python course

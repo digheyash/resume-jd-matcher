@@ -1,0 +1,19 @@
+ANANYA RAO
+ananya.rao@example.com | +91 90000 00001
+
+SUMMARY
+Final-year B.Tech student in Computer Science with hands-on machine learning experience. Comfortable taking a model from raw data to a small deployed service, and keen to start as a junior ML engineer.
+
+SKILLS
+Python, NumPy, pandas, scikit-learn, PyTorch, SQL, Git, Docker, FastAPI, Jupyter
+
+PROJECTS
+- Plant disease classifier: trained a convolutional neural network in PyTorch on 30,000 leaf images, reached 91% validation accuracy, and compared it with a scikit-learn random forest baseline using precision, recall and F1.
+- Customer churn predictor: cleaned a telecom dataset with pandas, engineered features, and evaluated logistic regression and gradient boosting with cross-validation.
+- Model API: wrapped the churn model in a FastAPI REST service and packaged it with Docker.
+
+EXPERIENCE
+- Machine Learning Intern, Brightwave Labs (3 months): built a text-classification prototype for support tickets and wrote the evaluation notebook.
+
+EDUCATION
+B.Tech, Computer Science, Example Institute of Technology, expected 2027. CGPA 8.4

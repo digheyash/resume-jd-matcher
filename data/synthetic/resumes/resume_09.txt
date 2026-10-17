@@ -1,0 +1,36 @@
+FARHAN QURESHI
+farhan.qureshi@example.com | +91 90000 00009
+
+SUMMARY
+Senior data scientist with 6 years of experience building and shipping natural language processing systems. Led a team of four, owned models from research through production, and mentored junior engineers.
+
+SKILLS
+Python, PyTorch, Hugging Face Transformers, NLP, deep learning, machine learning, scikit-learn, pandas, NumPy, SQL, Docker, AWS, REST API, MLflow, Git, Spark
+
+EXPERIENCE
+Senior Data Scientist, Orchid Software (2022 to present)
+- Lead a team of four building a document-understanding platform that extracts entities and answers questions from contracts.
+- Fine-tuned BERT and T5 models with Hugging Face Transformers and PyTorch; improved F1 on the entity task from 0.78 to 0.89 over the previous system.
+- Designed offline and online evaluation, including error analysis, annotation guidelines and A/B experiments.
+- Packaged models as Docker images and served them through REST APIs on AWS; reduced median latency by 35 percent with model distillation.
+- Built feature and training pipelines with pandas, SQL and Spark, and tracked experiments in MLflow.
+- Mentor three junior engineers and run weekly paper-reading sessions.
+
+Data Scientist, Brightwave Labs (2019 to 2022)
+- Built a ticket classification and routing model for customer support using scikit-learn and later a transformer model, which removed most manual triage.
+- Created a search relevance model with sentence embeddings and a vector index.
+- Wrote the team's evaluation toolkit for precision, recall, F1 and calibration curves.
+- Worked with product managers to define success metrics and presented results to leadership.
+
+Data Analyst, Kestrel Systems (2018 to 2019)
+- Produced SQL reports and dashboards and automated recurring analysis in Python.
+
+PUBLICATIONS
+- Co-author, workshop paper on weak supervision for contract entity extraction (2023).
+
+EDUCATION
+M.Tech, Computer Science, Example Institute of Technology, 2018
+B.Tech, Computer Science, Sample University, 2016
+
+CERTIFICATIONS
+AWS Certified Machine Learning Specialty

@@ -1,0 +1,23 @@
+Backend Java Developer
+
+About the role
+Join the payments platform team to build and run the services that process our customers' orders.
+
+Responsibilities
+- Design, build and maintain Java microservices and REST APIs.
+- Write clean, tested code and take part in code reviews.
+- Model data and tune queries in a relational database.
+- Help deploy and monitor services in the cloud.
+
+Requirements
+- 2+ years of professional Java experience.
+- Hands-on experience with Spring Boot and REST APIs.
+- Solid SQL skills, preferably PostgreSQL.
+- Experience with Git and automated testing.
+- Understanding of microservices.
+
+Nice to have
+- Experience with Docker, Kafka and AWS.
+
+Benefits
+Competitive salary, stock options and health insurance.

@@ -1,0 +1,23 @@
+Junior Machine Learning Engineer
+
+About the role
+We are a small product team building prediction features for an online marketplace. You will join the ML team to help train, evaluate and ship models.
+
+Responsibilities
+- Prepare and clean datasets and build features for model training.
+- Train and evaluate classification and regression models.
+- Work with senior engineers to put models into production.
+
+Requirements
+- Strong Python programming experience.
+- Hands-on experience with pandas, NumPy and scikit-learn.
+- Understanding of model evaluation: precision, recall, F1 and cross-validation.
+- Knowledge of deep learning with TensorFlow or PyTorch.
+- Familiarity with Docker and REST APIs.
+
+Nice to have
+- Experience with NLP or Hugging Face Transformers.
+- Basic knowledge of AWS.
+
+Benefits
+Flexible hours, a learning budget and health insurance.

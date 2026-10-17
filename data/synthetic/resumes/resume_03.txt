@@ -1,0 +1,22 @@
+KARTHIK IYER
+karthik.iyer@example.com | +91 90000 00003
+
+SUMMARY
+Backend developer with 3 years of experience building Java microservices for payments and order processing.
+
+SKILLS
+Java, Spring Boot, REST APIs, microservices, PostgreSQL, SQL, Kafka, Docker, Git, JUnit, AWS
+
+EXPERIENCE
+Software Engineer, Orchid Software (2023 to present)
+- Develop and maintain Spring Boot services that handle about 2 million requests a day.
+- Design REST APIs and PostgreSQL schemas; tune slow queries and add indexes.
+- Publish and consume Kafka events between order and payment services.
+- Containerise services with Docker and deploy them to AWS ECS.
+- Write JUnit tests and review pull requests in Git.
+
+Associate Software Engineer, Orchid Software (2022 to 2023)
+- Fixed defects in a legacy Java application and migrated it to Spring Boot.
+
+EDUCATION
+B.E. Information Technology, Example Institute of Technology, 2022

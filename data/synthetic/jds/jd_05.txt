@@ -1,0 +1,24 @@
+DevOps Engineer
+
+About the role
+Help our engineering teams ship faster and more reliably by owning our cloud infrastructure and delivery pipelines.
+
+Responsibilities
+- Build and maintain CI/CD pipelines.
+- Manage cloud infrastructure as code.
+- Run and scale containerised services in production.
+- Set up monitoring, logging and alerting, and take part in on-call.
+
+Requirements
+- Experience with Linux administration.
+- Strong knowledge of Docker and Kubernetes.
+- Hands-on experience with AWS.
+- Experience with Terraform or similar infrastructure-as-code tools.
+- Scripting in Python or Bash.
+
+Nice to have
+- Experience with Jenkins or GitHub Actions.
+- Familiarity with Prometheus and Grafana.
+
+Benefits
+On-call allowance, learning budget and health insurance.

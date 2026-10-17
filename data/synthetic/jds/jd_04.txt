@@ -1,0 +1,24 @@
+Frontend Developer
+
+About the role
+We are looking for a frontend developer to build the customer-facing web app for our booking platform.
+
+Responsibilities
+- Build responsive user interfaces with React.
+- Integrate with REST APIs and manage application state.
+- Turn designs into accessible, reusable components.
+- Write tests and fix bugs found in code review.
+
+Requirements
+- Solid experience with JavaScript and TypeScript.
+- Hands-on experience with React.
+- Good knowledge of HTML and CSS.
+- Experience consuming REST APIs.
+- Comfortable using Git.
+
+Nice to have
+- Experience writing tests with Jest.
+- An eye for design and accessibility.
+
+Benefits
+Remote-friendly, flexible hours and a home-office allowance.

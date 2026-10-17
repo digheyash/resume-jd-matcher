@@ -1,0 +1,20 @@
+ISHAAN VERMA
+ishaan.verma@example.com | +91 90000 00010
+
+SUMMARY
+Self-taught developer with a year of freelance experience building small websites and web apps for local businesses.
+
+SKILLS
+JavaScript, React, Node.js, HTML, CSS, Python (basic), SQL (basic), Git
+
+PROJECTS
+- Restaurant ordering site: React front end with a Node.js and Express back end; menu data stored in a SQL database.
+- Personal budget tracker: a single-page app using React hooks and local storage.
+
+EXPERIENCE
+Freelance Web Developer (2024 to present)
+- Delivered four websites for local shops, including a booking form and a contact page.
+- Fixed browser compatibility bugs and improved mobile layouts.
+
+EDUCATION
+B.A. Economics, Sample University, 2023
