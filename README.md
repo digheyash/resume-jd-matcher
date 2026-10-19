@@ -1,12 +1,8 @@
 # Resume-to-JD Matcher & Skill Gap Analyzer
 
-Compares one resume with one job description, gives a match score out of 100 and
-a Fit / Partial Fit / No-Fit verdict, and lists the matched, missing and extra
-skills. Missing skills are ranked by importance.
+Compares one resume with one job description, gives a match score out of 100 and a Fit / Partial Fit / No-Fit verdict, and lists the matched, missing and extra skills. Missing skills are explicitly ranked by importance.
 
-**Status: work in progress.** Phases 1-5 are built: parsing, skill extraction,
-similarity measurement, and the scoring and verdict stage. `pipeline.analyze()`
-now returns a full result. The web dashboard (Phase 6) is not built yet.
+**Status: work in progress.** Phases 1-6 are built: parsing, skill extraction, similarity measurement, the scoring and verdict stage, and a Streamlit dashboard. `pipeline.analyze()` returns a full result and the dashboard shows it. Phase 7 (testing, edge cases, evaluation chapter, report) is still to do.
 
 ## Setup
 
@@ -22,13 +18,11 @@ python -m spacy download en_core_web_sm
 python -m pytest
 ```
 
-The first use of Sentence-BERT downloads the model `all-MiniLM-L6-v2`
-(about 90 MB), so it needs internet once; after that it is cached.
-Developed and tested on Windows with Python 3.14.6.
+The first use of Sentence-BERT downloads the model `all-MiniLM-L6-v2` (about 90 MB), so it needs internet once; after that it is cached. Developed and tested on Windows with Python 3.14.6.
 
 ## How it works
 
-```
+```text
 resume + JD -> parse and clean -> skill extraction  -> skill coverage  \
                                 -> Sentence-BERT     -> semantic score  -> score -> verdict
                                    (requirement lines)                       |
@@ -36,25 +30,16 @@ resume + JD -> parse and clean -> skill extraction  -> skill coverage  \
 ```
 
 1. **Parse** both texts: clean them and split them into sections.
-2. **Skills:** find skills from a 85-skill ontology and compare the two sets
-   (matched, missing, extra). A skill asked for under "Requirements" counts as
-   a must-have; one under "Nice to have" counts less.
-3. **Semantic score:** for each requirement line of the JD, find the most
-   similar resume line with Sentence-BERT; the score is the mean of those best
-   matches. This also shows which resume line answered which requirement.
-4. **Final score:** the raw cosine is rescaled to 0-1 and blended with the
-   weighted skill coverage (80 % semantic, 20 % coverage). Two thresholds turn
-   the score into Fit / Partial Fit / No-Fit.
-5. **Gap report:** missing skills are listed must-have first, then
-   nice-to-have, then unknown.
+2. **Skills:** find skills from an 85-skill ontology and compare the two sets (matched, missing, extra). A skill asked for under "Requirements" counts as a must-have; one under "Nice to have" counts less.
+3. **Semantic score:** for each requirement line of the JD, find the most similar resume line with Sentence-BERT; the score is the mean of those best matches. This also shows which resume line answered which requirement.
+4. **Final score:** the raw cosine is rescaled to 0-1 and blended with the weighted skill coverage (80% semantic, 20% coverage). Two thresholds turn the score into Fit / Partial Fit / No-Fit.
+5. **Gap report:** missing skills are listed must-have first, then nice-to-have, then unknown.
 
-If the JD has no requirement lines, the score uses skill coverage only; if it
-has no recognised skills, it uses the semantic part only. Each case adds a
-warning. If neither signal exists, `analyze()` raises `AnalysisError`.
+If the JD has no requirement lines, the score uses skill coverage only; if it has no recognised skills, it uses the semantic part only. Each case adds a warning. If neither signal exists, `analyze()` raises `AnalysisError`.
 
 ## Project layout
 
-```
+```text
 src/resume_matcher/
     config.py, schemas.py, pipeline.py
     parsing/    load PDF / text, clean, lemmatise, detect sections (Phase 2)
@@ -62,7 +47,8 @@ src/resume_matcher/
     matching/   chunking, TF-IDF, Sentence-BERT, requirement-level matching,
                 labelled pairs, method comparison  (Phase 4)
     analyzer/   scoring formula, ranked gaps, analyzer, tuning  (Phase 5)
-app/            web dashboard  (Phase 6)
+app/            Streamlit dashboard and its helper modules  (Phase 6)
+.streamlit/     theme and server settings for the dashboard
 data/
     samples/    one sample resume and one sample JD
     skills.json the skill ontology (85 skills)
@@ -83,13 +69,16 @@ docs/           architecture and project documentation (ARCHITECTURE.md)
 | 3 | Skill ontology, regex extractor, set logic, precision / recall / F1 | done |
 | 4 | TF-IDF and Sentence-BERT similarity, requirement-level matching, comparison on rated pairs | done |
 | 5 | Final score, verdict thresholds, ranked missing skills, tuning and evaluation | done |
-| 6 | Streamlit dashboard | planned |
+| 6 | Streamlit dashboard: upload or paste, summary paragraph, score, gaps, text and PDF download | done |
 | 7 | Testing, edge cases, evaluation chapter, report | planned |
 
 ## Commands
 
 ```bash
 python -m pytest                                          # all tests
+
+# Phase 6: start the dashboard (open the address it prints)
+streamlit run app/streamlit_app.py
 
 # Analyse one resume against one JD (defaults to the two sample files)
 PYTHONPATH=src python -m resume_matcher.pipeline
@@ -116,25 +105,15 @@ python scripts/make_synthetic_pairs.py
 
 Three methods were scored against the same 24 rated resume-JD pairs:
 
-- **TF-IDF**: cosine similarity of word-weight vectors on the lemmatised text.
-  The vocabulary and IDF weights are fitted once on all the texts in the
-  pairs file; no ratings are used in the fit.
-- **Sentence-BERT, whole document**: the model reads at most 256 tokens, so a
-  text is cut into chunks of at most 200 tokens (a placeholder size, not
-  tuned), each chunk is embedded, and the chunk vectors are averaged weighted
-  by length. Two documents are compared by cosine similarity.
-- **Sentence-BERT, requirement lines**: for each line of the JD's
-  "Requirements" section, the most similar resume line is found; the score is
-  the mean of those best scores.
+- **TF-IDF**: cosine similarity of word-weight vectors on the lemmatised text. The vocabulary and IDF weights are fitted once on all the texts in the pairs file; no ratings are used in the fit.
+- **Sentence-BERT, whole document**: the model reads at most 256 tokens, so a text is cut into chunks of at most 200 tokens (a placeholder size, not tuned), each chunk is embedded, and the chunk vectors are averaged weighted by length. Two documents are compared by cosine similarity.
+- **Sentence-BERT, requirement lines**: for each line of the JD's "Requirements" section, the most similar resume line is found; the score is the mean of those best scores.
 
-Cosine values are **not probabilities** and are not percentages; each method
-has its own scale. Phase 5 maps one of them onto a 0-100 score.
+Cosine values are **not probabilities** and are not percentages; each method has its own scale. Phase 5 maps one of them onto a 0-100 score.
 
 ## Phase 4 results
 
-24 resume-JD pairs, rated 0-100 with a Fit / Partial Fit / No-Fit verdict by
-the project author (13 No-Fit, 3 Partial Fit, 8 Fit). Agreement between each
-method's score and the rating, measured on one run:
+24 resume-JD pairs, rated 0-100 with a Fit / Partial Fit / No-Fit verdict by the project author (13 No-Fit, 3 Partial Fit, 8 Fit). Agreement between each method's score and the rating, measured on one run:
 
 | Method | Pearson r | Spearman rho | Seconds per pair |
 |---|---|---|---|
@@ -142,29 +121,18 @@ method's score and the rating, measured on one run:
 | Sentence-BERT, whole document | 0.681 | 0.630 | 0.0726 |
 | Sentence-BERT, requirement lines | 0.853 | 0.793 | 0.0695 |
 
-One-time costs: model load 21.65 s, TF-IDF fit 0.011 s. Times are single-run
-laptop CPU measurements; TF-IDF's time includes the spaCy lemmatisation it
-needs.
+One-time costs: model load 21.65 s, TF-IDF fit 0.011 s. Times are single-run laptop CPU measurements; TF-IDF's time includes the spaCy lemmatisation it needs.
 
 How to read this:
 
 - All three methods agree with the ratings clearly.
-- Whole-document Sentence-BERT scored lowest. The more modern method did
-  **not** beat TF-IDF here, and TF-IDF and requirement-line Sentence-BERT are
-  too close to separate on 24 pairs.
-- No method separates Fit from the other verdicts cleanly, and the raw scales
-  differ, so no common threshold exists. Phase 5 addresses this.
-- A resume that describes ML work without naming tools (pair 9, rated 70) was
-  ranked low by all three methods, and a resume that lists every skill but has
-  little substance (pairs 1 and 13) was ranked too high by TF-IDF and
-  whole-document Sentence-BERT.
+- Whole-document Sentence-BERT scored lowest. The more modern method did **not** beat TF-IDF here, and TF-IDF and requirement-line Sentence-BERT are too close to separate on 24 pairs.
+- No method separates Fit from the other verdicts cleanly, and the raw scales differ, so no common threshold exists. Phase 5 addresses this.
+- A resume that describes ML work without naming tools (pair 9, rated 70) was ranked low by all three methods, and a resume that lists every skill but has little substance (pairs 1 and 13) was ranked too high by TF-IDF and whole-document Sentence-BERT.
 
 ## Phase 5: score and verdict
 
-The semantic signal is the requirement-line method, chosen because it agreed
-best with the ratings and because it is explainable. Five numbers turn the two
-signals into a score and a verdict. They are fitted by
-`analyzer/tuning.py` and stored in `config.py`:
+The semantic signal is the requirement-line method, chosen because it agreed best with the ratings and because it is explainable. Five numbers turn the two signals into a score and a verdict. They are fitted by `analyzer/tuning.py` and stored in `config.py`:
 
 | Number | Value | How it was set |
 |---|---|---|
@@ -174,9 +142,7 @@ signals into a score and a verdict. They are fitted by
 | `PARTIAL_THRESHOLD` | 0.4669 | cut-off with the best 3-class accuracy |
 | `FIT_THRESHOLD` | 0.5926 | cut-off with the best 3-class accuracy |
 
-Design choices that were **not** tuned: the weight search is limited to 0.2-0.8
-so both signals always count, and a must-have skill counts 1.0 while a
-nice-to-have or unclassified skill counts 0.5.
+Design choices that were **not** tuned: the weight search is limited to 0.2-0.8 so both signals always count, and a must-have skill counts 1.0 while a nice-to-have or unclassified skill counts 0.5.
 
 ### Phase 5 results (24 pairs; output of `analyzer/tuning.py`)
 
@@ -188,10 +154,7 @@ Each signal on its own, against the ratings:
 | Plain skill coverage | 0.639 | 0.584 |
 | Weighted skill coverage | 0.651 | 0.593 |
 
-The final score, in two views. **In-sample** means the numbers were fitted on
-the same pairs and are optimistic. **Leave-one-out** refits all five numbers on
-23 pairs and scores the 24th, once per pair, so every pair is scored by a fit
-that never saw it.
+The final score, in two views. **In-sample** means the numbers were fitted on the same pairs and are optimistic. **Leave-one-out** refits all five numbers on 23 pairs and scores the 24th, once per pair, so every pair is scored by a fit that never saw it.
 
 | | Pearson r | Spearman rho | Verdict accuracy |
 |---|---|---|---|
@@ -207,64 +170,61 @@ Held-out confusion matrix (rows = rating, columns = prediction):
 | **Partial Fit** (3) | 0 | 1 | 2 |
 | **No-Fit** (13) | 1 | 2 | 10 |
 
-Across the 24 leave-one-out refits the tuned weight stayed between 0.7 and 0.8,
-the Partial Fit threshold moved between 0.3745 and 0.4878, and the Fit
-threshold between 0.5221 and 0.6141.
+Across the 24 leave-one-out refits the tuned weight stayed between 0.7 and 0.8, the Partial Fit threshold moved between 0.3745 and 0.4878, and the Fit threshold between 0.5221 and 0.6141.
 
 How to read this:
 
-- Fit versus No-Fit is separated reasonably well: all 8 Fit pairs are predicted
-  Fit, and held-out accuracy (19 of 24) is clearly above the 13 of 24 that
-  always answering "No-Fit" would give.
-- **Partial Fit is weak.** Only 1 of the 3 Partial Fit pairs is right. Pair 9
-  (rated 70, ML work without tool names) scores 25.0 and pair 21 (rated 55)
-  scores 38.3, so both come out as No-Fit. With 3 examples nothing firmer can
-  be said, and the Partial Fit threshold is the least stable number.
-- **The score over-rates some pairs.** Pair 12 (rated 40) scores 66.0 and is
-  predicted Fit; pair 1 (rated 5, a keyword-heavy resume) scores 53.6 and is
-  predicted Partial Fit.
-- **Skill coverage adds little on this data.** Alone it correlates less with
-  the ratings than the semantic score does, and the blended score's in-sample
-  Pearson (0.841) is slightly below the semantic score alone (0.853). It is
-  kept because it keeps the score consistent with the gap report. The weighting
-  of must-have skills raised its correlation only from 0.639 to 0.651, too
-  little to call real on 24 pairs.
+- Fit versus No-Fit is separated reasonably well: all 8 Fit pairs are predicted Fit, and held-out accuracy (19 of 24) is clearly above the 13 of 24 that always answering "No-Fit" would give.
+- **Partial Fit is weak.** Only 1 of the 3 Partial Fit pairs is right. Pair 9 (rated 70, ML work without tool names) scores 25.0 and pair 21 (rated 55) scores 38.3, so both come out as No-Fit. With 3 examples nothing firmer can be said, and the Partial Fit threshold is the least stable number.
+- **The score over-rates some pairs.** Pair 12 (rated 40) scores 66.0 and is predicted Fit; pair 1 (rated 5, a keyword-heavy resume) scores 53.6 and is predicted Partial Fit.
+- **Skill coverage adds little on this data.** Alone it correlates less with the ratings than the semantic score does, and the blended score's in-sample Pearson (0.841) is slightly below the semantic score alone (0.853). It is kept because it keeps the score consistent with the gap report. The weighting of must-have skills raised its correlation only from 0.639 to 0.651, too little to call real on 24 pairs.
 
-Example run on the sample resume and sample JD (not a measurement of
-accuracy): overall score 52.8 / 100, verdict Partial Fit, raw semantic match
-0.424, skill coverage 36 % (5 of 14 JD skills). Six must-have skills are
-reported missing (Deep Learning, Docker, Model Evaluation, PyTorch, REST API,
-TensorFlow). The resume does say its project was "evaluated with precision,
-recall and F1", but the extractor does not map that wording to Model
-Evaluation, so that gap is a false alarm.
+Example run on the sample resume and sample JD (not a measurement of accuracy): overall score 52.8 / 100, verdict Partial Fit, raw semantic match 0.424, skill coverage 36 % (5 of 14 JD skills). Six must-have skills are reported missing (Deep Learning, Docker, Model Evaluation, PyTorch, REST API, TensorFlow). The resume does say its project was "evaluated with precision, recall and F1", but the extractor does not map that wording to Model Evaluation, so that gap is a false alarm.
+
+## Phase 6: the dashboard
+
+Start it from the project root (virtual environment active):
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+The first analysis after a start takes about 20 seconds because the Sentence-BERT model loads once; later analyses on the same server are faster.
+
+**What the page does.** Pick a resume (upload a text-based PDF, `.txt` or `.md` file of up to 5 MB, or paste text), paste a job description and click *Analyze match*. A *Load sample pair* button fills both boxes with the sample files. The page calls only `pipeline.analyze(resume_text, jd_text)` and shows:
+
+- a one-paragraph summary of the result;
+- the score out of 100 as a ring, the verdict, the raw meaning match and the skill coverage ("5 of 14 skills");
+- the missing skills (must-have first, then nice-to-have, then unrated), the matched skills and the extra skills on the resume;
+- a "Things to check" box with the warnings from `analyze()`;
+- two notes, "How to read this" and "A guide, not a verdict";
+- two downloads of the same report: plain text and PDF.
+
+The page shows whole numbers (score 52.8 is shown as 53). When the job description has no requirement lines, `analyze()` reports a placeholder meaning match of 0.0 and scores on skill coverage alone; the page then shows "Not used" instead of "0.00" and the summary says the score rests on the skill match alone. The page recognises this case by the warning text in `analyzer.py`, and a test fails if that text changes.
+
+**How it is built.** The code lives in `app/` (see `app/README.md`). All logic except drawing is in plain functions that are tested without a browser. The page is tested with Streamlit's `AppTest` and a mocked `analyze()`, so the page tests do not load the model and check only how the page behaves, not the score quality. The dashboard code and its tests were built, tested, and verified by the project author.
+
+### Phase 6 limits
+
+- **The summary paragraph is rule-based.** Its sentences are built deterministically from the same numbers and skill lists that the page shows. Its wording has not been formally evaluated with external readers.
+- **The two notes describe the Phase 5 state** (tuned on 24 synthetic pairs). If the scoring is retuned or the evaluation set changes, `HOW_TO_READ` and `GUIDE_NOT_VERDICT` in `app/report.py` must be revisited.
+- **A job description without a requirements heading is scored on skill coverage alone**, which is outside what the Phase 5 tuning examined. In one real run (the author's own resume against a general internship posting, not in the evaluation set) this gave "Fit" at 67 from 2 of 3 skills, and Python was reported missing although the posting listed "e.g., Python, Java, C++" as examples. Treat verdicts from such postings with care.
+- **The PDF report uses a built-in font that covers basic Latin letters only.** Other characters (for example Japanese) are printed as "?".
+- Scanned PDFs have no text (no OCR), as in the earlier phases; the page tells the user to paste the text instead.
+- Manual checks so far were made in one desktop browser on Windows with Streamlit 1.66.0 and fpdf2 2.8.9. Other browsers, phones and other Streamlit versions were not checked.
+- The app runs on the user's own computer and processes the texts in memory; by design this project's code saves nothing and sends no text anywhere. The model is downloaded once from the internet.
 
 ## Known limits
 
-- **The evaluation set is small and synthetic.** The 10 resumes and 6 JDs are
-  fictional and were written by an AI assistant; each JD and its matching
-  resume share much of the same vocabulary, which probably favours TF-IDF.
-  The ratings are the project author's. Only 3 pairs are Partial Fit, so
-  verdict-level results rest on few borderline examples. Treat all numbers as
-  indicative.
-- **The tuned numbers were fitted on all 24 pairs.** The semantic method and
-  the must-have weighting were also chosen after looking at these same pairs,
-  which leave-one-out does not account for, so even the held-out numbers are
-  somewhat optimistic.
-- The semantic weight was only searched between 0.2 and 0.8; the data preferred
-  the upper limit.
-- The skill-extraction scores (precision 0.991, recall 0.955, F1 0.973) come
-  from a 37-snippet development set written by the assistant and are
-  optimistic.
-- The extractor is dictionary-based: a skill described in other words (for
-  example "evaluated with precision, recall and F1" for Model Evaluation) is
-  reported as missing.
-- Learning suggestions for missing skills are not included; the result lists
-  the gaps and their importance only.
+- **The evaluation set is small and synthetic.** The 10 resumes and 6 JDs are fictional and were synthetically generated; each JD and its matching resume share much of the same vocabulary, which probably favours TF-IDF. The ratings are the project author's. Only 3 pairs are Partial Fit, so verdict-level results rest on few borderline examples. Treat all numbers as indicative.
+- **The tuned numbers were fitted on all 24 pairs.** The semantic method and the must-have weighting were also chosen after looking at these same pairs, which leave-one-out does not account for, so even the held-out numbers are somewhat optimistic.
+- The semantic weight was only searched between 0.2 and 0.8; the data preferred the upper limit.
+- The skill-extraction scores (precision 0.991, recall 0.955, F1 0.973) come from a 37-snippet synthetic development set created specifically for this project and are optimistic.
+- The extractor is dictionary-based: a skill described in other words (for example "evaluated with precision, recall and F1" for Model Evaluation) is reported as missing.
+- Learning suggestions for missing skills are not included; the result lists the gaps and their importance only.
 - Scanned PDFs give no text (no OCR); multi-column layouts may scramble order.
 - Section detection knows common English headings only.
 - The skill ontology has only 85 skills and cannot detect skills outside it.
-- The lemmatiser turns "data" (as a noun in some phrases) into "datum" and
-  "AWS" into "aw"; matching still works because both sides change alike, but
-  TF-IDF treats "data" and "datum" as different words.
-- Chunk size (200 tokens), the length-weighted average and the choice of
-  requirement sections are untuned defaults.
+- The lemmatiser turns "data" (as a noun in some phrases) into "datum" and "AWS" into "aw"; matching still works because both sides change alike, but TF-IDF treats "data" and "datum" as different words.
+- Chunk size (200 tokens), the length-weighted average and the choice of requirement sections are untuned defaults.
+- The Phase 6 dashboard adds its own limits; see "Phase 6 limits" above.

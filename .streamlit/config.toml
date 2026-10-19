@@ -1,0 +1,20 @@
+# Streamlit settings for the Resume-to-JD Matcher dashboard (Phase 6).
+# Streamlit reads this file from the folder where "streamlit run" is started,
+# so run the app from the project root.
+
+[theme]
+# Light, calm look: warm off-white page, white-ish panels, one indigo accent.
+base = "light"
+primaryColor = "#4F46E5"
+backgroundColor = "#FAF9F6"
+secondaryBackgroundColor = "#F3F1EC"
+textColor = "#1F2430"
+font = "sans serif"
+
+[server]
+# Largest file the upload box accepts, in megabytes (Streamlit's default is 200).
+maxUploadSize = 5
+
+[browser]
+# Do not send anonymous usage statistics.
+gatherUsageStats = false
